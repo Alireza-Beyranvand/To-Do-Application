@@ -23,9 +23,7 @@ import { CreateContext } from "./context/CreateContext";
 
 // react-confirm-alert (import)
 import { confirmAlert } from "react-confirm-alert";
-// sweetalert2
-import withReactContent from "sweetalert2-react-content";
-import Swal from "sweetalert2";
+
 
 
 
@@ -92,15 +90,7 @@ const App = () => {
 
 
 
-  // send form Input Createjob to json-server
 
-
-
-
-  // popups DeleteAlert successfull
-
-
-  const swall = withReactContent(Swal);
 
 
   const AlertDeleteJob = () => {
@@ -110,7 +100,6 @@ const App = () => {
       icon: "success"
     })
   }
-
 
 
 
@@ -128,13 +117,8 @@ const App = () => {
 
 
   return (
-    <CreateContext.Provider value={
-      {
-        remove: removejob
-      }
-    }>
-      <>
 
+      <>
 
         {/* Nvabar (Title & Searchbox) */}
 
@@ -173,7 +157,6 @@ const App = () => {
 
 
       </>
-    </CreateContext.Provider>
   )
 };
 

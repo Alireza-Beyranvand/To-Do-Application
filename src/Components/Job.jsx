@@ -4,7 +4,8 @@ import { useState } from "react";
 import { confirmAlert } from "react-confirm-alert";
 import { EditJob, DeleteJobs } from "../reducers/jobSlice";
 import { useDispatch } from "react-redux";
-
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
 
 const Job = ({ AllJobs }) => {
 
@@ -23,6 +24,8 @@ const Job = ({ AllJobs }) => {
   })
 
 
+  //swall
+  const swall = withReactContent(Swal);
 
 
   // function btn for change style Description
@@ -31,11 +34,18 @@ const Job = ({ AllJobs }) => {
   };
 
 
+// Handeler swall 
+  const AlertDeleteJob = () => {
+    swall.fire({
+      title: "delete succsesFull !",
+      text: "Complete!",
+      icon: "success"
+    })
+  }
 
 
 
   // confirm alert & Delete Job from json-server
-
   const removejob = async () => {
 
     const Dl = async (jobId) => {
@@ -58,6 +68,7 @@ const Job = ({ AllJobs }) => {
                 onClick={() => {
                   Dl(jobId)
                   onClose();
+                  AlertDeleteJob()
                 }}
               >
                 Yes, Delete it!
