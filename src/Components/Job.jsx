@@ -12,15 +12,16 @@ const Job = ({ AllJobs }) => {
 
 const Dispatch = useDispatch();
 
-console.log(AllJobs)
 
 
-  console.log("render Job")
+
+
   // State for Change completeJob
   const [preJob, setPreJob] = useState({
     ...AllJobs, status: "Completed"
   })
 
+  
   // life cycle for Change Style <del></del> 
   useEffect(() => {
     if (AllJobs.status === "Completed") {
@@ -59,7 +60,7 @@ console.log(AllJobs)
     ShowDelName.current.style.display = "inline";
     await Dispatch(EditJob(preJob));
   };
-console.log(preJob)
+
 
 
 

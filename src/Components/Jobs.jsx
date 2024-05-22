@@ -17,7 +17,6 @@ const Jobs = () => {
     const AllJobs = useSelector(AllJobSelector)
     const spinnerLoading = useSelector(state => state.jobs.status)
 
-  console.log(spinnerLoading)
 
 useEffect(() =>{
 if (spinnerLoading === "none"){
@@ -33,9 +32,9 @@ if (spinnerLoading === "none"){
             {spinnerLoading === "none" ? <SpinnerLoading /> : (
                 <div>
                     {
-                   AllJobs ? (AllJobs.map((jobs) =>
+                   AllJobs.length > 0 ? (AllJobs.map((jobs) =>
                      <Job key={jobs.id} AllJobs={jobs}  />))  : (
-                        <h1>Not Found</h1>
+                        <h1 className="text-center text-white mt-5">Not Found</h1>
                      )
                     }
                 </div>

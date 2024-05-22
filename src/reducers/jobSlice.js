@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { UpdateJob, getAllJobs } from "../services/services";
-import { createJob } from "../services/services";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
+import { UpdateJob, getAllJobs , createJob} from "../services/services";
+
 
 
 export const fetchJobs = createAsyncThunk("/jobs/fetchJobs" , async () => {
@@ -44,12 +44,10 @@ const jobSlice = createSlice({
             state.status = "failed";
             state.error = action.error.message;
         })
-        .addCase (createJobs.pending , (state , action) => {
-            state.status = "loading";
-        })
        .addCase (createJobs.fulfilled , (state , action) => {
         state.status = "none";
-        state.jobs = action.payload
+        state.jobs = action.payload;
+        console.log(current(state))
        })
        .addCase(EditJob.fulfilled , (state , action) => {
         const id = action.payload.id;
