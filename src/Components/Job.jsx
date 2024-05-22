@@ -1,15 +1,14 @@
 
 import { Link } from "react-router-dom";
-
-import { useContext , useState } from "react";
+import { useState } from "react";
 import { confirmAlert } from "react-confirm-alert";
-import { EditJob , DeleteJobs } from "../reducers/jobSlice";
+import { EditJob, DeleteJobs } from "../reducers/jobSlice";
 import { useDispatch } from "react-redux";
 
 
 const Job = ({ AllJobs }) => {
 
-
+// initialaze Dispatch
   const Dispatch = useDispatch();
 
   //statusjob
@@ -25,13 +24,23 @@ const Job = ({ AllJobs }) => {
 
 
 
+
+  // function btn for change style Description
+  const delJobs = async () => {
+    await Dispatch(EditJob(preJob));
+  };
+
+
+
+
+
   // confirm alert & Delete Job from json-server
 
   const removejob = async () => {
 
     const Dl = async (jobId) => {
       try {
-    await Dispatch(DeleteJobs(jobId))
+        await Dispatch(DeleteJobs(jobId))
       } catch (err) {
         console.log(err.massage)
       }
@@ -60,14 +69,6 @@ const Job = ({ AllJobs }) => {
       }
     });
   }
-
-
-
-
-  // function btn for change style Description
-  const delJobs = async () => {
-    await Dispatch(EditJob(preJob));
-  };
 
 
 
