@@ -1,0 +1,42 @@
+{
+  "jobs": [
+    {
+      "id": "0859",
+      "name": "thghht",
+      "start": "2024-05-09",
+      "end": "2024-05-02",
+      "status": "Completed",
+      "Description": "tththt"
+    },
+    {
+      "id": "21d5",
+      "name": "dvdvvdd",
+      "start": "2024-05-23",
+      "end": "2024-05-03",
+      "status": "Completed",
+      "Description": "dvddvvd"
+    },
+    {
+      "id": "ltuv41TvLQJRllFp2I-fa",
+      "name": "باشگاه",
+      "start": "2024-05-08",
+      "end": "2024-05-07",
+      "status": "Completed",
+      "Description": "روزی 2 ساعتم کافیه"
+    }
+  ],
+  "groups": [
+    {
+      "name": "عادی",
+      "id": "1"
+    },
+    {
+      "name": "روزمره",
+      "id": "2"
+    },
+    {
+      "name": "هفتگی",
+      "id": "3"
+    }
+  ]
+}
