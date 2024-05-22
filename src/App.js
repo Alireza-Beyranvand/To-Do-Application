@@ -75,12 +75,6 @@ const App = () => {
 
 
 
-  // render force render
-  const render = async () => {
-    const { data } = await getAllJobs();
-    setAllJobs(data)
-    setFiltered(data)
-  };
 
 
 
@@ -93,13 +87,6 @@ const App = () => {
 
 
 
-  const AlertDeleteJob = () => {
-    swall.fire({
-      title: "delete succsesFull !",
-      text: "Complete!",
-      icon: "success"
-    })
-  }
 
 
 
