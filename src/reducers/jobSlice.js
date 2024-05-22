@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
-import { UpdateJob, getAllJobs , createJob} from "../services/services";
+import { UpdateJob, getAllJobs , createJob, DeleteJob} from "../services/services";
 
 
 
@@ -17,6 +17,14 @@ export const EditJob = createAsyncThunk("/jobs/EditJob" , async initialUpdate =>
    const respons = await UpdateJob(initialUpdate.id , initialUpdate);
    return respons.data;
 })
+
+
+export const DeleteJobs = createAsyncThunk("/jobs/DeleteJobs" , async initialDelete => {
+    await DeleteJob(initialDelete);
+    return initialDelete;
+}) 
+
+
 
 const initialState = {
     jobs : [] ,
@@ -55,6 +63,10 @@ const jobSlice = createSlice({
             (job) => job.id === id
         );
         state.jobs[updated] = action.payload;
+       })
+       .addCase(DeleteJobs.fulfilled , (state , action) => {
+        state.jobs = state.jobs.filter((job) => 
+            job.id !== action.payload);
        })
     }
 });

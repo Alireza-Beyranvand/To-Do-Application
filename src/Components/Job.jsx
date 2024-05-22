@@ -1,9 +1,9 @@
 
 import { Link } from "react-router-dom";
 
-import { useContext, useEffect, useRef, useState } from "react";
-import { CreateContext } from "../context/CreateContext";
-import { EditJob } from "../reducers/jobSlice";
+import { useContext , useState } from "react";
+import { confirmAlert } from "react-confirm-alert";
+import { EditJob , DeleteJobs } from "../reducers/jobSlice";
 import { useDispatch } from "react-redux";
 
 
@@ -12,9 +12,11 @@ const Job = ({ AllJobs }) => {
 
   const Dispatch = useDispatch();
 
-
+  //statusjob
   const StatusJob = AllJobs.status;
 
+  //  id for send to ViewJob.js
+  const jobId = AllJobs.id;
 
   // State for Change completeJob
   const [preJob, setPreJob] = useState({
@@ -23,14 +25,43 @@ const Job = ({ AllJobs }) => {
 
 
 
+  // confirm alert & Delete Job from json-server
+
+  const removejob = async () => {
+
+    const Dl = async (jobId) => {
+      try {
+    await Dispatch(DeleteJobs(jobId))
+      } catch (err) {
+        console.log(err.massage)
+      }
+    }
+
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className='m-5 p-5' style={{ backgroundColor: "#034078", border: "1px solid blue", borderRadius: "50px 0 50px 0" }}>
+            <h1 className="text-warning">Delete Job ?</h1>
+            <p className="text-center text-white">Are you want delete Job ?</p>
+            <div className="btn-groups text-center">
+              <button className="btn btn-secondary mx-1" onClick={onClose}>No</button>
+              <button className="btn btn-danger"
+                onClick={() => {
+                  Dl(jobId)
+                  onClose();
+                }}
+              >
+                Yes, Delete it!
+              </button>
+            </div>
+
+          </div>
+        );
+      }
+    });
+  }
 
 
-  //  function async Delete Job 
-  const { remove } = useContext(CreateContext);
-
-
-  //  id for send to ViewJob.js
-  const jobId = AllJobs.id;
 
 
   // function btn for change style Description
@@ -73,7 +104,7 @@ const Job = ({ AllJobs }) => {
           <button className="btn btn-success mt-2" onClick={delJobs}> <i className="fa fa-check" ></i></button>
           <div className="container btn-group w-50 mt-2" >
             <Link to={`/viewjob/${jobId}`} className="btn btn-warning text-center "><i className="fa-solid fa-eye"></i></Link>
-            <button onClick={() => remove(jobId)}
+            <button onClick={removejob}
               className="btn btn-danger text-dark"
             ><i className="fa-solid fa-trash"></i></button>
           </div>

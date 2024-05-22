@@ -112,48 +112,6 @@ const App = () => {
   }
 
 
-  // confirm alert & Delete Job from json-server
-
-  const removejob = async (DlJobId) => {
-
-    const Dl = async (DlJobId) => {
-      try {
-        setLoading(true)
-        const { data } = await DeleteJob(DlJobId);
-        if (data) {
-          setLoading(false)
-        }
-        AlertDeleteJob();
-        render()
-      } catch (err) {
-        console.log(err.massage)
-        setLoading(false)
-      }
-    }
-
-    confirmAlert({
-      customUI: ({ onClose }) => {
-        return (
-          <div className='m-5 p-5' style={{ backgroundColor: "#034078", border: "1px solid blue", borderRadius: "50px 0 50px 0" }}>
-            <h1 className="text-warning">Delete Job ?</h1>
-            <p className="text-center text-white">Are you want delete Job ?</p>
-            <div className="btn-groups text-center">
-              <button className="btn btn-secondary mx-1" onClick={onClose}>No</button>
-              <button className="btn btn-danger"
-                onClick={() => {
-                  Dl(DlJobId)
-                  onClose();
-                }}
-              >
-                Yes, Delete it!
-              </button>
-            </div>
-
-          </div>
-        );
-      }
-    });
-  }
 
 
 
