@@ -2,16 +2,11 @@
 // hooks ref for assets to serach input 
 import { useRef } from "react";
 
-// contextApi
-import { useContext } from "react";
-import { CreateContext } from "../context/CreateContext";
+
 
 
 const SearchJobs = ({searchjob , Querysearch }) => {
 
-
-
-// contextApi
 
 
 

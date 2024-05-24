@@ -34,14 +34,6 @@ const Job = ({ AllJobs }) => {
   };
 
 
-// Handeler swall 
-  const AlertDeleteJob = () => {
-    swall.fire({
-      title: "delete succsesFull !",
-      text: "Complete!",
-      icon: "success"
-    })
-  }
 
 
 
@@ -59,7 +51,7 @@ const Job = ({ AllJobs }) => {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
-          <div className='m-5 p-5' style={{ backgroundColor: "#034078", border: "1px solid blue", borderRadius: "50px 0 50px 0" }}>
+          <div className='m-5 p-5 confirm' style={{ backgroundColor: "#034078", border: "1px solid blue", borderRadius: "50px 0 50px 0" }}>
             <h1 className="text-warning">Delete Job ?</h1>
             <p className="text-center text-white">Are you want delete Job ?</p>
             <div className="btn-groups text-center">
@@ -79,7 +71,16 @@ const Job = ({ AllJobs }) => {
         );
       }
     });
-  }
+  };
+
+// Handeler swall 
+const AlertDeleteJob = () => {
+  swall.fire({
+    title: "delete succsesFull !",
+    text: "Complete!",
+    icon: "success"
+  })
+}
 
 
 
@@ -87,7 +88,7 @@ const Job = ({ AllJobs }) => {
 
     <>
 
-      <div className="card" style={{ backgroundColor: "#dee2e6" }} >
+      <div className="card mx-4" style={{ backgroundColor: "#dee2e6" }} >
         <div className="card-header bg-dark text-white">
           #New-Job
         </div>
@@ -115,7 +116,7 @@ const Job = ({ AllJobs }) => {
 
           <button className="btn btn-success mt-2" onClick={delJobs}> <i className="fa fa-check" ></i></button>
           <div className="container btn-group w-50 mt-2" >
-            <Link to={`/viewjob/${jobId}`} className="btn btn-warning text-center "><i className="fa-solid fa-eye"></i></Link>
+            <Link to={`/viewjob/${jobId}`} className="btn btn-primary text-center "><i className="fa-solid fa-eye"></i></Link>
             <button onClick={removejob}
               className="btn btn-danger text-dark"
             ><i className="fa-solid fa-trash"></i></button>
@@ -123,7 +124,7 @@ const Job = ({ AllJobs }) => {
         </div>
       </div>
 
-      <hr className="text-white" />
+      <hr className="text-white hr-text w-75 mx-auto" />
 
     </>
   )

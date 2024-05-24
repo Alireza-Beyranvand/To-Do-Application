@@ -6,10 +6,7 @@ import Clock from 'react-live-clock';
 class Cl extends React.Component {
     render() {
         return(
-
-       
 <Clock format={'HH:mm:ss'} ticking={true} timezone={'UTC'} />
-        
         )
       
     }

@@ -7,7 +7,7 @@ import Job from "./Job";
 import NotFound from "../Spinner/NotFound";
 import SpinnerLoading from './../Spinner/SpinnerLoading';
 
-import { AllJobSelector, EditJob, fetchJobs } from "../reducers/jobSlice";
+import { AllJobSelector, fetchJobs } from "../reducers/jobSlice";
 
 import { useSelector , useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -25,16 +25,15 @@ if (spinnerLoading === "none"){
 },[Dispatch , spinnerLoading])
 
 
-
     return (
         <>
 
             {spinnerLoading === "none" ? <SpinnerLoading /> : (
                 <div>
                     {
-                   AllJobs.length > 0 ? (AllJobs.map((jobs) =>
+                   AllJobs.length > 0 ? (AllJobs.slice().sort((a, b) => b.date.localeCompare(a.date)).map((jobs) =>
                      <Job key={jobs.id} AllJobs={jobs}  />))  : (
-                        <h1 className="text-center text-white mt-5">Not Found</h1>
+                        <h1 className="text-center text-white mt-5"><NotFound message={"Nothing Job"} /></h1>
                      )
                     }
                 </div>

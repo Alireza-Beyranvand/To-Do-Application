@@ -1,0 +1,29 @@
+
+
+
+  .navbar{
+    background: linear-gradient(90deg, rgba(21,9,149,1) 0%, rgba(8,8,48,1) 94%) !important;
+    border-radius: 1.5rem 0 1.5rem 0;
+}
+
+
+@media screen and (max-width : 750px) {
+
+    .NavbarClock{
+        display: none;
+    }
+    .NavbarTitle{
+    margin: 0 !important;
+    }
+    .NavbarSearch{
+        width: 10rem !important;
+    }
+}
+@media screen and (max-width : 335px) {
+    .NavbarSearch{
+        display: none;
+    }
+    .NavbarTitle{
+     margin: auto !important;
+    }
+}

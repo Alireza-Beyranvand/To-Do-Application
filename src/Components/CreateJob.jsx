@@ -10,7 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { nanoid } from "@reduxjs/toolkit";
 
 
-
+import Style from "./css/Style.module.css";
 
 // input for create NewJobs
 const CreateJob = () => {
@@ -37,7 +37,8 @@ const CreateJob = () => {
   const SendInput = (event) => {
     setCreatedJob({
       ...CreatedJob,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value ,
+      date : new Date().toISOString()
     })
   }
 
@@ -57,9 +58,10 @@ const CreateJob = () => {
 
   return (
     <>
-      <div className="container mt-3 " dir="rtl" style={{ border: "3px solid white", borderRadius: "30px 0 30px 0" }}>
+      <div className={`container mt-3  ${Style.createjob}`} dir="rtl" style={{ border: "3px solid white", borderRadius: "30px 0 30px 0" }}>
         <div className="container my-3 " style={{
-          backgroundImage: ` url(${img})`,
+          backgroundImage: ` url(${img})`
+          ,
           background: "rgb(8,6,51)",
           background: "linear-gradient(90deg, rgba(8,6,51,1) 0%, rgba(1,0,20,1) 0%, rgba(23,23,37,1) 21%, rgba(109,108,129,1) 100%)",
           borderRadius: "25px 0 25px 0 "
