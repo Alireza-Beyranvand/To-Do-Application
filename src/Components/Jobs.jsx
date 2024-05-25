@@ -33,7 +33,7 @@ if (spinnerLoading === "none"){
                     {
                    AllJobs.length > 0 ? (AllJobs.slice().sort((a, b) => b.date.localeCompare(a.date)).map((jobs) =>
                      <Job key={jobs.id} AllJobs={jobs}  />))  : (
-                        <h1 className="text-center text-white mt-5"><NotFound message={"Nothing Job"} /></h1>
+                        <h1 className="text-center text-white Scroll"><NotFound message={"Nothing Job"} /></h1>
                      )
                     }
                 </div>

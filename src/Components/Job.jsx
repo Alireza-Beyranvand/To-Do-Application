@@ -34,9 +34,6 @@ const Job = ({ AllJobs }) => {
   };
 
 
-
-
-
   // confirm alert & Delete Job from json-server
   const removejob = async () => {
 
@@ -73,6 +70,7 @@ const Job = ({ AllJobs }) => {
     });
   };
 
+
 // Handeler swall 
 const AlertDeleteJob = () => {
   swall.fire({
@@ -88,7 +86,7 @@ const AlertDeleteJob = () => {
 
     <>
 
-      <div className="card mx-4" style={{ backgroundColor: "#dee2e6" }} >
+      <div className="card mx-4 Scroll" style={{ backgroundColor: "#dee2e6" }} >
         <div className="card-header bg-dark text-white">
           #New-Job
         </div>

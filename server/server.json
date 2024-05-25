@@ -1,17 +1,13 @@
 {
-  "jobs": [],
-  "groups": [
+  "jobs": [
     {
-      "name": "عادی",
-      "id": "1"
-    },
-    {
-      "name": "روزمره",
-      "id": "2"
-    },
-    {
-      "name": "هفتگی",
-      "id": "3"
+      "id": "KMo9lFwLGsbFS11kFnXgd",
+      "name": "باشگاه",
+      "start": "2024-05-07",
+      "end": "2024-04-29",
+      "Description": "روزی 2 ساعتم کافیه",
+      "status": "Completed",
+      "date": "2024-05-25T23:12:58.997Z"
     }
   ]
 }

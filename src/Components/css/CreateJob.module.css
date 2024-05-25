@@ -15,21 +15,31 @@
     opacity: 0;
   }
 
-  60% {
+  80% {
     width: 100%;
     height: 0;
     opacity: .5;
-    border: 3px solid red;
+    border: 3px solid aqua;
   }
 
   100% {
-
     height: 100%;
     opacity: 1;
   }
 }
 .createjob {
-  animation-duration: 1s;
+  animation-duration: .6s;
   animation-name: bounceIn;
   overflow: hidden;
+}
+.imgfluid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width : 1000px) {
+  .imgfluid{
+    display: none;
+  }
 }

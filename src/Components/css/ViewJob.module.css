@@ -1,0 +1,53 @@
+@keyframes bounceIn {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  
+  }
+  
+ .ScrollAllTagViewJob{
+    animation-duration: .5s;
+    animation-name: bounceIn;
+    color: white;
+    background-color: rgb(194, 20, 20);
+    border-radius: 10rem 0 10rem 0;
+
+  }
+  
+.card{
+    background-color: rgb(160, 20, 102) !important;
+    border-bottom: 1px solid rgb(0, 3, 201) ;
+    border-radius: 30%;
+    margin-top: 1rem;
+    animation-duration: 1.5s;
+    animation-name: bounceIn;
+}
+
+.containerViewJob{
+  border: 2px solid white;
+  border-radius: 10rem 0 10rem 0;
+}
+
+
+@media screen and (max-width : 575px ) {
+  .containerViewJob{
+    margin-top: 0 !important;
+  }
+  .containerViewJob{
+    border: none;
+  }
+  .headerViewJob{
+ margin-top: 2rem !important;
+  }
+}
+
+@media screen and (max-width : 400px) {
+  .headerViewJob{
+    margin-top: .5rem !important;
+     }
+}
