@@ -1,17 +1,12 @@
 import spinner from "../assets/Loading_icon.gif"
+import "./css/loaders.css";
 
 const SpinnerLoading = () => {
 
 return(
 
+  <div class="loader"></div> 
 
-  <>
-  
-  <div className="text-center w-100">
-    <img src={spinner} alt="" className="w-100 h-100" />
-  </div>
-  
-  </>
 )
 
 

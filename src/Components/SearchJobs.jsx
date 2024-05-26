@@ -1,14 +1,14 @@
 
 // hooks ref for assets to serach input 
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AllJobSelector } from "../reducers/jobSlice";
+import { searchJobs } from "../reducers/jobSlice";
+const SearchJobs = () => {
 
+const All = useSelector(AllJobSelector)
 
-
-
-const SearchJobs = ({searchjob , Querysearch }) => {
-
-
-
+const Dispatch = useDispatch()
 
 // useRef for focus on SearchBox
   const refSearch = useRef()
@@ -16,15 +16,21 @@ const Focus = () => {
   refSearch.current.focus()
 }
 
- 
+// const [query , setQuery] = useState({});
+
+const QuerySearch = (event) => {
+  Dispatch(searchJobs(event.target.value.toLowerCase()))
+};
 
 
     return(
         <>
         
-{/* input for SearchJobs */}
+
        <form className="d-flex " role="search">
-        <input ref={refSearch} onMouseOver={Focus} onChange={searchjob} value={Querysearch.text}  className="form-control me-2 h-25 w-75 mx-auto bg" type="text" placeholder="Search" aria-label="Search"/>
+       <input  class="form-control NavbarSearch" name="searched"  onChange={QuerySearch}
+       style={ Location.pathname !== "/" ? {display: "none"} : {width:"15rem"}} type="search"
+        placeholder="Search" aria-label="Search" />
       </form>
         </>
     )

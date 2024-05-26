@@ -35,12 +35,12 @@ const App = () => {
     setFiltered(FilteredAll)
   }
 
-
+console.log("render")
 
   return (
     <>
       {/* Nvabar (Title & Searchbox) */}
-      <Navbar Querysearch={Querysearch} searchjob={searchjob} />
+      <Navbar searchjob={searchjob} />
       <hr className="text-white mt-1" />
       <br />
       {

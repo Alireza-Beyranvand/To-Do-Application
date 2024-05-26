@@ -2,6 +2,8 @@
 import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { AllJobSelector, LoadingSelector } from "../reducers/jobSlice";
+
+// Module Css
 import Style from './css/ViewJob.module.css';
 
 // import SoinnerLoading
@@ -15,12 +17,12 @@ const ViewJob = () => {
     const { jobId } = useParams();
 
 
-
+// initialization for ShoweJobs & Setting SpinnerLoading
     const ShowJob = useSelector(AllJobSelector);
     const Loading = useSelector(LoadingSelector);
 
 
-
+// loop for Jobs
     const DispJob = ShowJob.length > 0 ?
         ShowJob.find((job) => job.id === jobId) :
         (<h1>Not Found !</h1>)
@@ -31,6 +33,7 @@ const ViewJob = () => {
         <>
             {!Loading ? (<SpinnerLoading />) : (
                 <>
+
                     <header className={`text-center ${Style.headerViewJob}`} style={{ marginTop: "7.5rem" }}>
                         <h1 className="text-info" style={{ textTransform: "uppercase"}}>View Job</h1>
                     </header>
@@ -67,8 +70,6 @@ const ViewJob = () => {
                             <Link to={"/"} className="btn text-white w-25 my-5 rounded-5" style={{ backgroundColor: "#0071c5" }} ><i className="fa fa-arrow-left"> back </i></Link>
                         </article>
                     </section>
-
-
 
                 </>
             )}

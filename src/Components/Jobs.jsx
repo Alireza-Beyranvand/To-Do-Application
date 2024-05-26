@@ -2,22 +2,27 @@
 //components real
 import Job from "./Job";
 
-
 //components spinner & NotFound
 import NotFound from "../Spinner/NotFound";
 import SpinnerLoading from './../Spinner/SpinnerLoading';
 
+//hooks
 import { AllJobSelector, fetchJobs } from "../reducers/jobSlice";
-
 import { useSelector , useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 const Jobs = () => {
+
+    // initialize useDispatch => Dispatch
     const Dispatch = useDispatch();
+
+    // initialize state => ShowJobs 
     const AllJobs = useSelector(AllJobSelector)
+
+    // initialize SpinnerLoading by state.status
     const spinnerLoading = useSelector(state => state.jobs.status)
 
-
+// When changing status => render => Dispatch(fetchJobs())
 useEffect(() =>{
 if (spinnerLoading === "none"){
    Dispatch(fetchJobs())
@@ -39,6 +44,7 @@ if (spinnerLoading === "none"){
                 </div>
             )
             }
+            
         </>
 
     )

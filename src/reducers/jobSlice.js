@@ -1,78 +1,90 @@
 import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
-import { UpdateJob, getAllJobs , createJob, DeleteJob} from "../services/services";
+import { UpdateJob, getAllJobs, createJob, DeleteJob } from "../services/services";
 
 
 
-export const fetchJobs = createAsyncThunk("/jobs/fetchJobs" , async () => {
+export const fetchJobs = createAsyncThunk("/jobs/fetchJobs", async () => {
     const respons = await getAllJobs();
-    return  respons.data;
+    return respons.data;
 })
 
-export const createJobs = createAsyncThunk("/jobs/createJobs" , async initialJob => {
+export const createJobs = createAsyncThunk("/jobs/createJobs", async initialJob => {
     const respons = await createJob(initialJob);
     return respons.data;
 })
 
-export const EditJob = createAsyncThunk("/jobs/EditJob" , async initialUpdate => {
-   const respons = await UpdateJob(initialUpdate.id , initialUpdate);
-   return respons.data;
+export const EditJob = createAsyncThunk("/jobs/EditJob", async initialUpdate => {
+    const respons = await UpdateJob(initialUpdate.id, initialUpdate);
+    return respons.data;
 })
 
 
-export const DeleteJobs = createAsyncThunk("/jobs/DeleteJobs" , async initialDelete => {
+export const DeleteJobs = createAsyncThunk("/jobs/DeleteJobs", async initialDelete => {
     await DeleteJob(initialDelete);
     return initialDelete;
-}) 
+})
 
 
 
 const initialState = {
-    jobs : [] ,
-    status : "none" ,
-    error : null
+    jobs: [],
+    status: "none",
+    error: null
 }
 
 
 
 const jobSlice = createSlice({
-    name : "jobs" ,
-    initialState : initialState ,
-    reducers : {
+    name: "jobs",
+    initialState: initialState,
+    reducers: {
+
+        // for searchbox
+        searchJobs: (state, action) => {
+            const query = action.payload;
+               const filtered = state.jobs.filter((job) =>
+                     job.name.startsWith(query))
+               if(query){
+                state.jobs = filtered
+               }
+               else if(!query){
+                state.status = "none"
+               }
+        }
     },
-    extraReducers : builder => {
+    extraReducers: builder => {
         builder
-        .addCase(fetchJobs.pending , (state , action) => {
-            state.status = "loading";
-        })
-        .addCase (fetchJobs.fulfilled , (state , action) => {
-            state.status = "completed";
-            state.jobs = action.payload;
-        })
-        .addCase (fetchJobs.rejected , (state , action) => {
-            state.status = "failed";
-            state.error = action.error.message;
-        })
-       .addCase (createJobs.fulfilled , (state , action) => {
-        state.status = "none";
-        state.jobs = action.payload;
-        console.log(current(state))
-       })
-       .addCase(EditJob.fulfilled , (state , action) => {
-        const id = action.payload.id;
-        const updated = state.jobs.findIndex(
-            (job) => job.id === id
-        );
-        state.jobs[updated] = action.payload;
-       })
-       .addCase(DeleteJobs.fulfilled , (state , action) => {
-        state.jobs = state.jobs.filter((job) => 
-            job.id !== action.payload);
-       })
+            .addCase(fetchJobs.pending, (state, action) => {
+                state.status = "loading";
+            })
+            .addCase(fetchJobs.fulfilled, (state, action) => {
+                state.status = "completed";
+                state.jobs = action.payload;
+            })
+            .addCase(fetchJobs.rejected, (state, action) => {
+                state.status = "failed";
+                state.error = action.error.message;
+            })
+            .addCase(createJobs.fulfilled, (state, action) => {
+                state.status = "none";
+                state.jobs = action.payload;
+            })
+            .addCase(EditJob.fulfilled, (state, action) => {
+                const id = action.payload.id;
+                const updated = state.jobs.findIndex(
+                    (job) => job.id === id
+                );
+                state.jobs[updated] = action.payload;
+            })
+            .addCase(DeleteJobs.fulfilled, (state, action) => {
+                state.jobs = state.jobs.filter((job) =>
+                    job.id !== action.payload);
+            })
     }
 });
 
 
-export const {} = jobSlice.actions;
+export const { searchJobs } = jobSlice.actions;
 
 
 
