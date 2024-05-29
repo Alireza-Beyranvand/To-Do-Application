@@ -9,7 +9,9 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
     "bootstrap-icons": "^1.11.3",
+    "formik": "^2.4.6",
     "jalaali-js": "^1.2.6",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-confirm-alert": "^3.0.6",
     "react-dom": "^18.2.0",
@@ -20,7 +22,8 @@
     "react-spinners": "^0.13.8",
     "sweetalert2": "^11.10.6",
     "sweetalert2-react-content": "^5.0.7",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
