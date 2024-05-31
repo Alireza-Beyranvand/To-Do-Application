@@ -1,10 +1,14 @@
 {
+  "homepage" : "https://Alireza-beyranvand.github.io/To-Do-Application" ,
   "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-   "start" : "json-server --watch server.json -p9000"
+   "start" : "json-server --watch server.json -p9000" ,
+   "predeploy" : "react-scripts build" ,
+   "deploy" : "gh-pages -d build" 
+
   },
   "keywords": [],
   "author": "",

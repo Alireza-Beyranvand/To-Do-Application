@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../App";
 import Job from "../Components/Job";
 import Jobs from "../Components/Jobs";
@@ -23,8 +23,7 @@ const router = createBrowserRouter([
   ]
 },
 
-
-] , {
-  basename : "To-Do-Application"
+]  , {
+  basename : "/To-Do-Application"
 });
 export default router;
