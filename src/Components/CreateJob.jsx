@@ -133,7 +133,7 @@ const CreateJob = () => {
             </div>
 
             <div className={` col ${Style.imgfluid}`}>
-              <img src={require("../assets/mg background.jpgi")} className="img-thumbnail my-1 " style={{ borderRadius: "30px 0 30px 0" }} alt="" />
+              <img src={require("../assets/img background.jpg")} className="img-thumbnail my-1 " style={{ borderRadius: "30px 0 30px 0" }} alt="" />
             </div>
           </div>
         </div>
