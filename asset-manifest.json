@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/To-Do-Application/static/css/main.dae30c91.css",
-    "main.js": "/To-Do-Application/static/js/main.aea2673b.js",
+    "main.js": "/To-Do-Application/static/js/main.6669afd9.js",
     "static/media/WallpaperGram.IR_1553790002_89681.jpg": "/To-Do-Application/static/media/WallpaperGram.IR_1553790002_89681.9abfc04006487c91218f.jpg",
     "static/media/img background.jpg": "/To-Do-Application/static/media/img background.39a05a1c61865ceb7f3d.jpg",
     "static/media/Loading_icon.gif": "/To-Do-Application/static/media/Loading_icon.1a32f552ee5280e2aef9.gif",
     "static/media/404-page-not-found.svg": "/To-Do-Application/static/media/404-page-not-found.1787f29b67daac6ba50ff6b1db3d893b.svg",
     "index.html": "/To-Do-Application/index.html",
     "main.dae30c91.css.map": "/To-Do-Application/static/css/main.dae30c91.css.map",
-    "main.aea2673b.js.map": "/To-Do-Application/static/js/main.aea2673b.js.map"
+    "main.6669afd9.js.map": "/To-Do-Application/static/js/main.6669afd9.js.map"
   },
   "entrypoints": [
     "static/css/main.dae30c91.css",
-    "static/js/main.aea2673b.js"
+    "static/js/main.6669afd9.js"
   ]
 }
