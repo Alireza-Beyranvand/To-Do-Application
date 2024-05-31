@@ -1,0 +1,8 @@
+@font-face {
+    font-family: "vazir";
+    src: url(../fonts/Vazir.ttf) format(ttf);
+}
+
+.Toastify__toast-body{
+    font-family: "vazir" , 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
