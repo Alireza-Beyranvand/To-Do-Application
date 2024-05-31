@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { UpdateJob, getAllJobs, createJob, DeleteJob } from "../services/services";
 
 
@@ -42,10 +42,9 @@ const jobSlice = createSlice({
         // for searchbox
         searchJobs: (state, action) => {
             const query = action.payload;
-               const filtered = state.jobs.filter((job) =>
-                     job.name.startsWith(query))
                if(query){
-                state.jobs = filtered
+                state.jobs = state.jobs.filter((job) =>
+                    job.name.toLowerCase().startsWith(query))
                }
                else if(!query){
                 state.status = "none"

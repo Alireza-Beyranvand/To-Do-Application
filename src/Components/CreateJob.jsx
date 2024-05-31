@@ -12,6 +12,7 @@ import Style from "./css/CreateJob.module.css";
 // Formik & JobSchema
 import { ErrorMessage, Field, Formik, Form } from "formik";
 import { JobSchema } from "../validations/JobSchema";
+import { toast } from "react-toastify";
 
 
 
@@ -26,7 +27,8 @@ const CreateJob = () => {
   // button send
   const SendForm = async (values) => {
     try {
-      await Dispatch(createJobs(values))
+    await Dispatch(createJobs(values))
+      toast.success("Completed !" , {icon : "🚀"})
       Navigate("/")
     } catch (err) {
       console.error(err.message)
@@ -52,6 +54,7 @@ const CreateJob = () => {
                   start: "",
                   end: "",
                   status: "Not Completed"
+                  , date : new Date().toISOString()
                 }}
                 validationSchema={JobSchema}
                 onSubmit={(values) => {
@@ -130,7 +133,7 @@ const CreateJob = () => {
             </div>
 
             <div className={` col ${Style.imgfluid}`}>
-              <img src={require("../assets/img background.jpg")} className="img-thumbnail my-1 " style={{ borderRadius: "30px 0 30px 0" }} alt="" />
+              <img src={require("../assets/mg background.jpgi")} className="img-thumbnail my-1 " style={{ borderRadius: "30px 0 30px 0" }} alt="" />
             </div>
           </div>
         </div>
