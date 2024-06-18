@@ -4,10 +4,7 @@ import axios from "axios";
 // server real
 
 
-
 const Server = "http://localhost:9000";
-
-
 
 
 // get all jobs

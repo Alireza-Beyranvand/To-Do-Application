@@ -1,4 +1,4 @@
-import { useL, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 
 // search box
 import SearchJobs from "./SearchJobs";
@@ -6,6 +6,8 @@ import SearchJobs from "./SearchJobs";
 import Cl from "../Spinner/Cl";
 
 import "./css/Navbar.css";
+
+
 
 
 const Navbar = () => {
@@ -16,7 +18,7 @@ const Navbar = () => {
     
     return (
         <>
-            <nav class="navbar bg-body-tertiary position-fixed z-3 w-100">
+        <nav class="navbar position-fixed z-3 w-100">
                 <div class="container-fluid mx-4">
                     <a class="navbar-brand text-white NavbarTitle" style={{ marginRight: "10rem" }}>To-Do <i className="fa fa-calendar" ></i></a>
                     {Location.pathname.includes("/viewjob") ? <div className="navbar-brand text-white title" style={{ marginRight: "5rem" }} >ViewJob</div> : null}
@@ -29,4 +31,4 @@ const Navbar = () => {
     )
 };
 
-export default Navbar
+export default Navbar;

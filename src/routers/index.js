@@ -1,7 +1,5 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import Job from "../Components/Job";
-import Jobs from "../Components/Jobs";
 import ViewJob from "../Components/ViewJob";
 import CreateJob from "../Components/CreateJob";
 import NotFound from "../Spinner/NotFound";
@@ -22,8 +20,7 @@ const router = createBrowserRouter([
     }
   ]
 },
-
-]  , {
-  basename : "/To-Do-Application"
+], {
+  basename:"/"
 });
 export default router;
